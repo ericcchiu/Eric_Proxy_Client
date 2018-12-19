@@ -1,21 +1,21 @@
 {
-  "name": "eric_proxy",
+  "name": "eric_proxy_client",
   "version": "1.0.0",
-  "description": "Proxy server to multiple services",
-  "main": "server.js",
+  "description": "Proxy client for all services",
+  "main": "index.js",
   "scripts": {
-    "server-dev": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JumpStart38/Eric_Proxy.git"
+    "url": "git+https://github.com/ericcchiu/Eric_Proxy_Client.git"
   },
   "author": "Eric",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JumpStart38/Eric_Proxy/issues"
+    "url": "https://github.com/ericcchiu/Eric_Proxy_Client/issues"
   },
-  "homepage": "https://github.com/JumpStart38/Eric_Proxy#readme",
+  "homepage": "https://github.com/ericcchiu/Eric_Proxy_Client#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
