@@ -1,0 +1,25 @@
+{
+  "name": "eric_proxy",
+  "version": "1.0.0",
+  "description": "Proxy server to multiple services",
+  "main": "server.js",
+  "scripts": {
+    "server-dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JumpStart38/Eric_Proxy.git"
+  },
+  "author": "Eric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JumpStart38/Eric_Proxy/issues"
+  },
+  "homepage": "https://github.com/JumpStart38/Eric_Proxy#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
+  }
+}
