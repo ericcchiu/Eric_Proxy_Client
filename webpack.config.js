@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/client/App.js',
+  entry: __dirname + '/client/ProxyClient.js',
   module: {
     rules: [
       {
