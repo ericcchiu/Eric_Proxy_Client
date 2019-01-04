@@ -11,12 +11,12 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public/dist")));
 
-app.get("/projects", (req, res) => {
+app.get("/projects/:id", (req, res) => {
   axios
-    .get("http://localhost:3002/")
-    .then(list => {
+    .get("http://localhost:3002/projects/" + req.params.id)
+    .then(project => {
       res.status(200);
-      res.json(list.data);
+      res.json(project.data);
     })
     .catch(err => {
       console.log("Error with GET request to Projects Services from Proxy");

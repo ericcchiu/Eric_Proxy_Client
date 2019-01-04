@@ -5,22 +5,15 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.changeProject = this.changeProject.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      id: Math.floor(Math.random() * 99 + 1)
+      id: Math.ceil(Math.random() * 107)
     };
   }
 
-  changeProject() {
+  handleClick(event, ID) {
     this.setState({
-      id: Math.floor(Math.random() * 99 + 1)
-    });
-  }
-
-  handleClick(event) {
-    this.setState({
-      id: event.target.id
+      id: ID
     });
   }
 
@@ -29,8 +22,8 @@ class App extends Component {
       <div>
         <h1>Welcome to Eric's Proxy Client</h1>
         <Project id={this.state.id} />
-        <Related id={this.state.id} />
-        <button onClick={this.changeProject} value="Change Project" />
+        <Related id={this.state.id} onClick={this.handleClick} />
+        <Pledge onClick={this.handleClick} id={this.state.id} />
       </div>
     );
   }
