@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const path = require("path");
 const axios = require("axios");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 const port = process.env.PROXY_PORT || 3000;
 
@@ -10,6 +11,8 @@ const app = express();
 
 app.use(morgan("dev"));
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public/dist")));
 
 /////  CONFIG ROUTES FROM ENV  ///////////////
@@ -89,12 +92,12 @@ app.get("/pledges/:id", (req, res) => {
 });
 
 app.post("/pledges", (req, res) => {
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", req.body);
   axios
     .post(pledgesRoute + "/pledges", req.body)
     .then(responseObj => {
-      res.status(201);
-      res.send(responseObj);
+      res.sendStatus(201);
+      // res.send(responseObj);
     })
     .catch(err => {
       console.log("Error posting to pledges service");

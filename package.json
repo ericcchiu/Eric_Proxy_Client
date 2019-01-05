@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server-dev": "nodemon server.js",
+    "webpack": "webpack",
     "react-dev": "webpack -d -w",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production"
@@ -21,7 +22,6 @@
   "homepage": "https://github.com/ericcchiu/Eric_Proxy_Client#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
@@ -39,6 +39,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "body-parser": "^1.18.3",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }
