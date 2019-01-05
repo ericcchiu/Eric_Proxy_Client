@@ -37,6 +37,19 @@ app.get("/related", (req, res) => {
     });
 });
 
+app.get("/related", (req, res) => {
+  axios
+    .get("http://localhost:3004/" + req.params.id)
+    .then(list => {
+      res.status(200);
+      res.json(list.data);
+    })
+    .catch(err => {
+      console.log("Error with GET request to Projects Services from Proxy");
+      res.sendStatus(500);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Eric Proxy Server running at: http://localhost:${port}`);
 });
