@@ -13,8 +13,7 @@ module.exports = {
       ref: "origin/master",
       repo: "git@github.com:ericcchiu/Eric_Proxy_Client.git",
       path: "/home/ubuntu/proxyClient",
-      "post-deploy":
-        "npm install && npm run build && pm2 startOrRestart ecosystem.config.js"
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js"
     }
   }
 };
