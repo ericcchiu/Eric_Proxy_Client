@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "server-dev": "nodemon server.js",
-    "buld": "webpack",
+    "build": "webpack",
     "react-dev": "webpack -d -w",
     "restart": "pm2 startOrRestart ecosystem.config.js",
     "deploy": "pm2 deploy ecosystem.config.js production"
