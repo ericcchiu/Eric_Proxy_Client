@@ -23,7 +23,7 @@ class App extends Component {
         <h1>Welcome to Eric's Proxy Client</h1>
         <Project id={this.state.id} />
         <Related id={this.state.id} onClick={this.handleClick} />
-        <Pledge onClick={this.handleClick} id={this.state.id} />
+        <Pledge id={this.state.id} />
       </div>
     );
   }

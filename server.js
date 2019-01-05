@@ -88,6 +88,19 @@ app.get("/pledges/:id", (req, res) => {
     });
 });
 
+app.post("/pledges", (req, res) => {
+  axios
+    .post(pledgesRoute + "/pledges", req.body)
+    .then(responseObj => {
+      res.status(201);
+      res.send(responseObj);
+    })
+    .catch(err => {
+      console.log("Error posting to pledges service");
+      res.sendStatus(500);
+    });
+});
+
 app.listen(port, () => {
   console.log(`Eric Proxy Server running at:${port}`);
 });
