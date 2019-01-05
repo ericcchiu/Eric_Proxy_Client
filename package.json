@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "server-dev": "nodemon server.js",
-    "react-dev": "webpack -d -w"
+    "react-dev": "webpack -d -w",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "repository": {
     "type": "git",
