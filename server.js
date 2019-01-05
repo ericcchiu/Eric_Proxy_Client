@@ -3,7 +3,8 @@ const morgan = require("morgan");
 const path = require("path");
 const axios = require("axios");
 const cors = require("cors");
-const port = process.env.PORT || 3000;
+require("dotenv").config();
+const port = process.env.PROXY_PORT || 3000;
 
 const app = express();
 
@@ -11,9 +12,30 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public/dist")));
 
+/////  CONFIG ROUTES FROM ENV  ///////////////
+const [commentsRoute, projectsRoute, pledgesRoute, relatedRoute] = [
+  "http://" +
+    (process.env.COMMENTS_HOST || "localhost") +
+    ":" +
+    (process.env.COMMENTS_PORT || 3001),
+  "http://" +
+    (process.env.PROJECTS_HOST || "localhost") +
+    ":" +
+    (process.env.PROJECTS_PORT || 3002),
+  "http://" +
+    (process.env.PLEDGES_HOST || "localhost") +
+    ":" +
+    (process.env.PLEDGES_PORT || 3003),
+  "http://" +
+    (process.env.RELATED_HOST ||
+      "ec2-18-216-54-110.us-east-2.compute.amazonaws.com") +
+    ":" +
+    (process.env.RELATED_PORT || 3004)
+];
+
 app.get("/projects/:id", (req, res) => {
   axios
-    .get("http://localhost:3002/projects/" + req.params.id)
+    .get(projectsRoute + "/projects/" + req.params.id)
     .then(project => {
       res.status(200);
       res.json(project.data);
@@ -26,7 +48,7 @@ app.get("/projects/:id", (req, res) => {
 
 app.get("/related", (req, res) => {
   axios
-    .get("http://localhost:3004/")
+    .get(relatedRoute + "/related")
     .then(list => {
       res.status(200);
       res.json(list.data);
@@ -37,9 +59,9 @@ app.get("/related", (req, res) => {
     });
 });
 
-app.get("/related", (req, res) => {
+app.get("/related/:id", (req, res) => {
   axios
-    .get("http://localhost:3004/" + req.params.id)
+    .get(relatedRoute + "/related" + req.params.id)
     .then(list => {
       res.status(200);
       res.json(list.data);
@@ -51,5 +73,5 @@ app.get("/related", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Eric Proxy Server running at: http://localhost:${port}`);
+  console.log(`Eric Proxy Server running at:${port}`);
 });
