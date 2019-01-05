@@ -14,7 +14,7 @@ module.exports = {
       repo: "git@github.com:ericcchiu/Eric_Proxy_Client.git",
       path: "/home/ubuntu/proxyClient",
       "post-deploy":
-        "npm install && npm run webpack &&pm2 startOrRestart ecosystem.config.js"
+        "npm install && npm run webpack && pm2 startOrRestart ecosystem.config.js"
     }
   }
 };
