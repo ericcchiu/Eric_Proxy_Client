@@ -23,7 +23,7 @@ const [commentsRoute, projectsRoute, pledgesRoute, relatedRoute] = [
     ":" +
     (process.env.PROJECTS_PORT || 3002),
   "http://" +
-    (process.env.PLEDGES_HOST || "localhost") +
+    (process.env.PLEDGES_HOST || "ec2-18-234-245-254.compute-1.amazonaws.com") +
     ":" +
     (process.env.PLEDGES_PORT || 3003),
   "http://" +
@@ -62,6 +62,19 @@ app.get("/related", (req, res) => {
 app.get("/related/:id", (req, res) => {
   axios
     .get(relatedRoute + "/related" + req.params.id)
+    .then(list => {
+      res.status(200);
+      res.json(list.data);
+    })
+    .catch(err => {
+      console.log("Error with GET request to Projects Services from Proxy");
+      res.sendStatus(500);
+    });
+});
+
+app.get("/pledges/:id", (req, res) => {
+  axios
+    .get(pledgesRoute + "/pledges" + req.params.id)
     .then(list => {
       res.status(200);
       res.json(list.data);
