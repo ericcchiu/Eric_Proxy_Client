@@ -74,13 +74,16 @@ app.get("/related/:id", (req, res) => {
 
 app.get("/pledges/:id", (req, res) => {
   axios
-    .get(pledgesRoute + "/pledges" + req.params.id)
+    .get(pledgesRoute + "/pledges/" + req.params.id)
     .then(list => {
       res.status(200);
       res.json(list.data);
     })
     .catch(err => {
-      console.log("Error with GET request to Projects Services from Proxy");
+      console.log(
+        "Error with GET request to Projects Services from Proxy",
+        err
+      );
       res.sendStatus(500);
     });
 });
