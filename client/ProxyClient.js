@@ -22,9 +22,7 @@ class App extends Component {
     return (
       <div>
         <Grid container direction="row" justify="center" alignItems="center">
-          <Typography component="h1" variant="h1" gutterBottom>
-            JumpStart38
-          </Typography>
+          <h1>JumpStart38</h1>
         </Grid>
         <Project id={this.state.id} />
         <Related id={this.state.id} onClick={this.handleClick} />
