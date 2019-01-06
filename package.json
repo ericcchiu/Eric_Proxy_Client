@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ericcchiu/Eric_Proxy_Client#readme",
   "dependencies": {
+    "@material-ui/core": "^3.8.1",
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",

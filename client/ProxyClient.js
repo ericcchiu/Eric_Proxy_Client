@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Eric's Proxy Client</h1>
+        <h1>JumpStart38</h1>
         <Project id={this.state.id} />
         <Related id={this.state.id} onClick={this.handleClick} />
         <Pledge id={this.state.id} />
