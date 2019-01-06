@@ -146,7 +146,7 @@ class PrimarySearchAppBar extends React.Component {
       >
         <MenuItem>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={3} color="secondary">
               <MailIcon />
             </Badge>
           </IconButton>
@@ -154,7 +154,7 @@ class PrimarySearchAppBar extends React.Component {
         </MenuItem>
         <MenuItem>
           <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
+            <Badge badgeContent={8} color="secondary">
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -171,7 +171,7 @@ class PrimarySearchAppBar extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "darkslategray" }}>
           <Toolbar>
             <IconButton
               className={classes.menuButton}
@@ -203,12 +203,12 @@ class PrimarySearchAppBar extends React.Component {
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
+                <Badge badgeContent={3} color="secondary">
                   <MailIcon />
                 </Badge>
               </IconButton>
               <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
+                <Badge badgeContent={8} color="secondary">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
@@ -238,9 +238,5 @@ class PrimarySearchAppBar extends React.Component {
     );
   }
 }
-
-PrimarySearchAppBar.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(PrimarySearchAppBar);
