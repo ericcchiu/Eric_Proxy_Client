@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Grid from "@material-ui/core/Grid";
+import NavBar from "./NavBar.js";
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Grid container direction="row" justify="center" alignItems="center">
-          <h1>JumpStart38</h1>
-        </Grid>
+        <NavBar />
         <Project id={this.state.id} />
         <Related id={this.state.id} onClick={this.handleClick} />
         <Pledge id={this.state.id} />
